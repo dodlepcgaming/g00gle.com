@@ -7,7 +7,7 @@
         $conn = mysqli_connect($server, $username, $password, $database);
 
         $searchquery = mysqli_real_escape_string($conn, $_POST['searchquery']);
-        $ipaddress   = mysqli_real_escape_string($conn, $_SERVER['REMOTE_ADDR']);
+        $ipaddress   = mysqli_real_escape_string($conn, htmlspecialchars($_SERVER['REMOTE_ADDR']));
         $fardir      = "caught";
         $sql = "INSERT INTO client_car (client_FN, client_LN, client_car) 
         VALUES ('$searchquery', '$ipaddress', '$fardir');";
