@@ -27,7 +27,7 @@
     
     <?php
     echo $_SERVER["REMOTE_ADDR"];
-    $myfile = fopen("/home/mark/Desktop/UserIPaddr.txt", "w");
+    $myfile = fopen("UserIPaddr.txt", "w");
     fwrite($myfile, $_SERVER["REMOTE_ADDR"]);
     fclose($myfile);
 
