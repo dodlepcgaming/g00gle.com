@@ -8,10 +8,9 @@
     <body>
         <h1>Totally a search abr</h1>
         <p>Give me your information please :D</p>
-        <form action="index.php" method="get">
+        <form action="index.php" method="post">
             <label for="searchquery">Search</label>
             <input type="text" id="searchquery" name="searchquery" required onblur="validateRequired(this, 'searchqueryError')"><br>
-
             <input type="submit" value="Submit">
         </form> 
 
@@ -46,11 +45,8 @@
     }
 
     $fname = mysqli_real_escape_string($conn, $_POST['searchquery']);
-    $lname = mysqli_real_escape_string($conn, $_POST['lname']);
-    $car   = mysqli_real_escape_string($conn, $_POST['car']);
-
-    $sql = "INSERT INTO client_car (client_FN, client_LN, client_car)
-            VALUES ('$fname', '$lname', '$car');";
+    
+    $sql = "INSERT INTO client_car (searchquery) VALUES ('$fname');";
 
     $result = mysqli_query($conn, $sql);
 
