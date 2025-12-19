@@ -6,13 +6,11 @@
         $database = "ClientList";
 
         $conn = mysqli_connect($server, $username, $password, $database);
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
 
         $searchquery = mysqli_real_escape_string($conn, $_POST['searchquery']);
         $ipaddress = mysqli_real_escape_string($conn, $_SERVER['REMOTE_ADDR']);
-        $sql = "INSERT INTO client_car (searchquery, ipaddress) VALUES ('$searchquery', '$ipaddress');";
+        $sql = "INSERT INTO client_car (client_FN, client_LN, client_car) 
+        VALUES ('$searchquery', '$ipaddress', 'caught');";
         mysqli_query($conn, $sql);
         mysqli_close($conn);
 
