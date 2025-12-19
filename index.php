@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>GOOGLE.COM</title>
-</head>
-<body>
-    <form method="POST" action="">
-        <input type="text" name="searchquery" placeholder="Enter search term">
-        <button type="submit">Search</button>
-    </form>
-
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['searchquery'])) {
         $server = "markraspi5";
@@ -32,5 +21,3 @@
         exit();
     }
     ?>
-</body>
-</html>
