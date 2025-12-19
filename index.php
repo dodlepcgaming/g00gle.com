@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Get User IP Address</title>
-</head>
-<body>
-    <h1>User IP Address</h1>
+<html lang="en">
+    <head>
+        <title>Marks Epic Website</title>
+            <h2 class="header" id="myHeader">GOOGLE.COM</h2>
+    </head>
+
+    <body>
+        <h1>Totally a search abr</h1>
+        <p>Give me your information please :D</p>
+        <form action="index.php" method="get">
+            <label for="searchquery">Search</label>
+            <input type="text" id="searchquery" name="searchquery" required onblur="validateRequired(this, 'searchqueryError')"><br>
+
+            <input type="submit" value="Submit">
+        </form> 
+
+        <script>
+            function validateRequired(field, errorId) {
+                var errorSpan = document.getElementById(errorId);
+                if (field.value.trim() === "") {
+                    errorSpan.style.display = "inline";
+                } else {
+                    errorSpan.style.display = "none";
+                }
+            }
+        </script>
+    
     <?php
     echo $_SERVER["REMOTE_ADDR"];
     $myfile = fopen("/home/mark/Desktop/UserIPaddr.txt", "w");
