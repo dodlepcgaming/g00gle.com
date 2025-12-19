@@ -1,5 +1,4 @@
 <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['searchquery'])) {
         $server = "markraspi5";
         $username = "php";
         $password = "password";
@@ -18,5 +17,4 @@
         $redirectUrl = "https://www.google.com/search?q=" . urlencode($_POST['searchquery']);
         header("Location: $redirectUrl");
         exit();
-    }
 ?>
