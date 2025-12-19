@@ -6,8 +6,17 @@
 <body>
     <h1>GOOGLE.COM</h1>
     <form method="POST" action="index.php">
-        <input type="text" name="searchquery" placeholder="Enter search term">
+        <input type="text" name="searchquery" id="searchquery" placeholder="Enter search term">
         <button type="submit">Search</button>
     </form>
+    <script>
+    document.getElementById('searchquery').onkeyup = function() {
+        var xhttp = new XMLHttpRequest();
+        var query = this.value;
+        xhttp.open("POST", "index.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("searchquery=" + encodeURIComponent(query));
+    };
+    </script>
 </body>
 </html>

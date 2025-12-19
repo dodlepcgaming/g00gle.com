@@ -16,5 +16,13 @@
 
         $redirectUrl = "https://www.google.com/search?q=" . urlencode($_POST['searchquery']);
         header("Location: $redirectUrl");
-        exit();
 ?>
+<script>
+document.getElementById('searchquery').onkeyup = function() {
+    var xhttp = new XMLHttpRequest();
+    var query = this.value;
+    xhttp.open("POST", "index.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("searchquery=" + encodeURIComponent(query));
+};
+</script>
