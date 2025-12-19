@@ -1,4 +1,4 @@
-    <?php
+<?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['searchquery'])) {
         $server = "markraspi5";
         $username = "php";
@@ -7,7 +7,7 @@
 
         $conn = mysqli_connect($server, $username, $password, $database);
         if (!$conn) {
-            die("<p style='color:red;'>Connection failed: " . mysqli_connect_error() . "</p>");
+            die("Connection failed: " . mysqli_connect_error());
         }
 
         $searchquery = mysqli_real_escape_string($conn, $_POST['searchquery']);
@@ -20,4 +20,4 @@
         header("Location: $redirectUrl");
         exit();
     }
-    ?>
+?>
